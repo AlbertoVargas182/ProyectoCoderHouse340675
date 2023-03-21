@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+    <h2>No se encuentra contenido disponible</h2>
+    {% if cursos %}
+        {% for curso in cursos %}
+            <p>curso: {{ curso.nombre }}</p>
+            <p>camada: {{ curso.camada }}</p>
+        {% endfor %}
+    {% else %}
+        <h2>no hay cursos registrados por el momento</h2>
+    {% endif %}
+    
+{% endblock %}
