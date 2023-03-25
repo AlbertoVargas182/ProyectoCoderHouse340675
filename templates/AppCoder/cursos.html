@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
-    <h2>No se encuentra contenido disponible</h2>
+    <form action="{% url 'AppCoderCursos' %}" method="post"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Crear">
+    
+    </form>
+    <hr><br>
+    <form action="{% url 'AppCoderBusquedaCurso' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+    <hr><br>
+
+
+
+    
     {% if cursos %}
         {% for curso in cursos %}
             <p>curso: {{ curso.nombre }}</p>
